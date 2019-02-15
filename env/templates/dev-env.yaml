@@ -1,0 +1,39 @@
+apiVersion: jenkins.io/v1
+kind: Environment
+metadata:
+  creationTimestamp: null
+  labels:
+    env: dev
+    team: devtools
+  name: dev
+spec:
+  kind: Development
+  label: Development
+  namespace: devtools
+  previewGitInfo:
+    user: {}
+  promotionStrategy: Never
+  source:
+    ref: master
+    url: https://github.com/nuxeo-sandbox/environment-hissember-dev.git
+  teamSettings:
+    appsRepository: http://chartmuseum.jenkins-x.io
+    buildPackName: kubernetes-workloads
+    buildPackRef: master
+    buildPackUrl: https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes.git
+    envOrganisation: nuxeo-sandbox
+    gitServer: https://github.com
+    helmTemplate: true
+    kubeProvider: gke
+    pipelineUsername: jenkins-x-bot
+    promotionEngine: Jenkins
+    quickstartLocations:
+    - excludes:
+      - WIP-*
+      gitKind: github
+      gitUrl: https://github.com
+      includes:
+      - '*'
+      owner: jenkins-x-quickstarts
+    useGitOps: true
+status: {}
